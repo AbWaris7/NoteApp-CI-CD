@@ -1,0 +1,36 @@
+
+name: Notes App CI
+
+on:
+  workflow_dispatch:
+
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout repository
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Step 2: Setup .NET SDK
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
+
+      # Step 3: Restore dependencies
+      - name: Restore Dependencies
+        run: dotnet restore NotesApi.Web/NotesApi.Web.csproj
+
+      # Step 4: Build application
+      - name: Build Application
+        run: dotnet build NotesApi.Web/NotesApi.Web.csproj --no-restore
+
+      # Step 5: List project files
+      - name: List Files
+        run: ls -la NotesApi.Web
