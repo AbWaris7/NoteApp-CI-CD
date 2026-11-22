@@ -31,4 +31,4 @@ Example JSON for POST or PUT:
 
 The workflow in `.github/workflows/ci.yml` runs when code is pushed to `main` or manually started from the GitHub Actions tab. It checks out the repository, sets up .NET 10, restores dependencies, and builds the API.
 
-> Notes are stored in memory and reset when the application restarts. This is a learning project, not production storage.
+> Notes are stored in memory and reset when the application restarts. This is a learning project, not production storage..
